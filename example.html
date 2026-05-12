@@ -1,0 +1,3140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>
+      Japón Mayo 2026
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&amp;family=Noto+Serif+JP:wght@400;700;900&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+  --washi: #f7f2e8;
+  --washi-dark: #ede5d0;
+  --washi-mid: #f0ead8;
+  --ink: #1a1208;
+  --ink-mid: #3d2e18;
+  --ink-light: #6b5740;
+  --vermillion: #c0392b;
+  --gold: #9a6f0e;
+  --gold-light: #c9962a;
+  --indigo: #2c3e7a;
+  --forest: #2d5a3d;
+  --line: rgba(26,18,8,0.12);
+  --line-strong: rgba(26,18,8,0.25);
+  --shadow: 0 2px 16px rgba(26,18,8,0.10);
+  --shadow-card: 0 4px 24px rgba(26,18,8,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: &#39;Noto Sans JP&#39;, sans-serif;
+  background: var(--washi);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 17px;
+  /* subtle paper texture via CSS */
+}
+
+/* ── LANGUAGE BAR ── */
+.lang-bar { background:var(--ink); color:var(--washi); display:flex; align-items:center; justify-content:center; gap:12px; padding:10px 20px; font-size:14px; }
+.lang-btn { background:none; border:1.5px solid rgba(247,242,232,0.4); color:var(--washi); padding:6px 18px; border-radius:999px; font-family:&#39;Noto Sans JP&#39;,sans-serif; font-size:14px; cursor:pointer; transition:all 0.2s; }
+.lang-btn.active { background:var(--vermillion); border-color:var(--vermillion); color:#fff; }
+.lang-btn:hover:not(.active) { background:rgba(247,242,232,0.12); }
+
+/* ── HERO ── */
+.hero { position:relative; background:var(--ink); overflow:hidden; min-height:320px; }
+.hero-img-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px; height:280px; opacity:0.6; }
+.hero-img-row div { overflow:hidden; }
+.hero-img-row img { width:100%; height:100%; object-fit:cover; filter:saturate(0.7) sepia(0.3); }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(26,18,8,0.3) 0%, rgba(26,18,8,0.85) 75%, var(--ink) 100%); }
+.hero-content { position:absolute; bottom:0; left:0; right:0; padding:28px 24px 32px; text-align:center; }
+.hero-jp { font-family:&#39;Noto Serif JP&#39;,serif; font-size:13px; letter-spacing:6px; color:var(--gold-light); margin-bottom:8px; }
+.hero-title { font-family:&#39;Noto Serif JP&#39;,serif; font-size:38px; font-weight:900; color:var(--washi); line-height:1.15; margin-bottom:10px; text-shadow:0 2px 12px rgba(0,0,0,0.5); }
+.hero-title .accent { color:var(--gold-light); }
+.hero-dates { color:rgba(247,242,232,0.75); font-size:15px; letter-spacing:1px; }
+
+/* ── COUNTDOWN ── */
+.countdown-strip { background:var(--ink); color:var(--washi); text-align:center; padding:16px 20px; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; }
+.countdown-num { font-family:&#39;Noto Serif JP&#39;,serif; font-size:36px; font-weight:900; color:var(--gold-light); line-height:1; }
+.countdown-label { font-size:12px; color:rgba(247,242,232,0.6); letter-spacing:1.5px; margin-top:2px; }
+.countdown-block { text-align:center; }
+.countdown-sep { font-size:28px; color:var(--vermillion); opacity:0.7; align-self:flex-start; margin-top:2px; }
+
+/* ── CITY TABS ── */
+.city-nav-wrap { position:sticky; top:0; z-index:100; background:var(--ink); }
+.city-nav { display:flex; }
+.city-nav-cities { border-bottom:1px solid rgba(247,242,232,0.12); }
+.city-nav-extras { border-bottom:2px solid var(--vermillion); }
+.city-tab { flex:1; padding:11px 8px; text-align:center; color:rgba(247,242,232,0.5); font-size:13px; font-family:&#39;Noto Serif JP&#39;,serif; cursor:pointer; border:none; background:none; transition:all 0.2s; border-bottom:3px solid transparent; margin-bottom:-2px; white-space:nowrap; text-decoration:none; display:block; }
+.city-tab.active { color:var(--washi); border-bottom-color:var(--vermillion); }
+.city-tab:hover:not(.active) { color:rgba(247,242,232,0.8); }
+
+/* ── TODAY SPOTLIGHT ── */
+.today-spotlight { background:var(--washi); padding-bottom:8px; }
+.today-spotlight .day-card { margin:0 16px; }
+
+/* ── CITY SECTION ── */
+.main { padding:0 0 80px; }
+.city-section { display:none; }
+.city-section.active { display:block; }
+
+/* ── CITY HEADER ── */
+.city-header { padding:32px 20px 20px; text-align:center; }
+.city-header-title { font-family:&#39;Noto Serif JP&#39;,serif; font-size:30px; font-weight:900; margin-bottom:6px; }
+.city-header-sub { font-size:15px; color:var(--ink-light); }
+.city-hotel { display:inline-block; margin-top:10px; background:var(--washi-dark); border:1px solid var(--line-strong); border-radius:12px; padding:8px 16px; font-size:14px; color:var(--ink-mid); line-height:1.5; }
+.hotel-address { font-size:12px; color:var(--ink-light); margin-top:3px; }
+
+/* ── SECTION LABEL ── */
+.section-label { display:flex; align-items:center; gap:12px; padding:24px 20px 12px; }
+.section-label-line { flex:1; height:1px; background:var(--line-strong); }
+.section-label-text { font-family:&#39;Noto Serif JP&#39;,serif; font-size:13px; letter-spacing:3px; color:var(--ink-light); text-transform:uppercase; white-space:nowrap; }
+
+/* ── CAROUSEL ── */
+.carousel-wrap { position:relative; padding:0 16px 20px; overflow:hidden; touch-action:pan-y; }
+.carousel-track { display:flex; gap:12px; padding-bottom:4px; transition:transform 0.45s cubic-bezier(0.25,0.1,0.25,1); will-change:transform; }
+.sight-card { flex-shrink:0; width:180px; scroll-snap-align:start; background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--line); }
+.sight-card img { width:100%; height:130px; object-fit:cover; display:block; }
+.sight-caption { padding:10px 12px 12px; }
+.sight-name { font-size:14px; font-weight:600; font-family:&#39;Noto Serif JP&#39;,serif; margin-bottom:4px; line-height:1.3; }
+.sight-desc { font-size:12px; color:var(--ink-light); line-height:1.4; }
+.sight-tip { font-size:11px; color:var(--gold); margin-top:5px; font-style:italic; }
+.carousel-dots { display:flex; justify-content:center; gap:6px; margin-top:8px; }
+.carousel-dot { width:6px; height:6px; border-radius:50%; background:var(--line-strong); transition:background 0.2s; }
+.carousel-dot.active { background:var(--vermillion); }
+
+/* ── EVENT CARD ── */
+.event-card { margin:0 16px 12px; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-card); background:var(--ink); }
+.event-card img { width:100%; height:180px; object-fit:cover; display:block; filter:brightness(0.65) saturate(1.1); }
+.event-card-content { padding:16px 20px 20px; background:linear-gradient(to bottom, rgba(26,18,8,0.92), var(--ink)); }
+.event-tag { display:inline-block; background:var(--vermillion); color:#fff; font-size:12px; padding:4px 12px; border-radius:999px; margin-bottom:10px; width:fit-content; }
+.event-title { font-family:&#39;Noto Serif JP&#39;,serif; font-size:20px; color:var(--washi); font-weight:700; margin-bottom:8px; line-height:1.3; }
+.event-desc { font-size:14px; color:rgba(247,242,232,0.85); line-height:1.5; }
+
+/* ── DAY CARDS ── */
+.days-list { padding:0 16px; display:flex; flex-direction:column; gap:16px; }
+.day-card { background:#fff; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-card); border:1px solid var(--line); }
+.day-card.today { border:2.5px solid var(--vermillion); box-shadow:0 4px 32px rgba(192,57,43,0.18); }
+.day-card.past { opacity:0.72; }
+.today-badge { background:var(--vermillion); color:#fff; font-size:12px; font-weight:600; letter-spacing:2px; text-align:center; padding:6px; font-family:&#39;Noto Serif JP&#39;,serif; }
+.day-header { display:flex; align-items:stretch; border-bottom:1px solid var(--line); }
+.day-accent-bar { width:7px; flex-shrink:0; }
+.day-header-inner { flex:1; padding:16px 18px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.day-num-block { display:flex; flex-direction:column; align-items:center; flex-shrink:0; min-width:48px; }
+.day-num { font-family:&#39;Noto Serif JP&#39;,serif; font-size:36px; font-weight:900; line-height:1; }
+.day-name-small { font-size:11px; color:var(--ink-light); margin-top:2px; }
+.day-title-block { flex:1; }
+.day-title { font-family:&#39;Noto Serif JP&#39;,serif; font-size:17px; font-weight:700; line-height:1.3; margin-bottom:4px; }
+.day-rhythm { display:inline-block; font-size:12px; padding:3px 12px; border-radius:999px; border:1px solid var(--line-strong); color:var(--ink-light); }
+.day-body { display:block; }
+.time-blocks { display:flex; flex-direction:column; }
+.time-block { padding:18px 20px; border-bottom:1px solid var(--line); }
+.time-block:last-child { border-bottom:none; }
+.time-label { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--ink-light); font-weight:600; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.time-label::after { content:&#39;&#39;; flex:1; height:1px; background:var(--line-strong); }
+.time-item { display:flex; gap:10px; margin-bottom:12px; align-items:flex-start; font-size:16px; line-height:1.55; }
+.time-item:last-child { margin-bottom:0; }
+.time-icon { flex-shrink:0; font-size:18px; margin-top:1px; }
+.time-text { color:var(--ink-mid); }
+.time-text strong { font-weight:600; color:var(--ink); }
+.tip-box { background:#fffbf0; border-left:3px solid var(--gold); border-radius:0 10px 10px 0; padding:10px 14px; font-size:14px; color:var(--ink-light); font-style:italic; margin-top:12px; line-height:1.5; }
+.warn-box { background:#fff5f5; border-left:3px solid var(--vermillion); border-radius:0 10px 10px 0; padding:10px 14px; font-size:14px; color:#8b2218; margin-top:12px; line-height:1.5; }
+.parents-note { background:#f0f7f2; border:1px solid rgba(45,90,61,0.25); border-radius:10px; padding:10px 14px; font-size:14px; color:var(--forest); margin-top:12px; line-height:1.5; }
+
+/* ── PHRASES ── */
+.phrases-grid { display:flex; flex-direction:column; gap:10px; padding:0 16px; }
+.phrase-item { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px; box-shadow:var(--shadow); }
+.phrase-top { display:flex; align-items:flex-start; gap:10px; }
+.phrase-jp { font-family:&#39;Noto Serif JP&#39;,serif; font-size:22px; font-weight:700; color:var(--vermillion); }
+.phrase-detail { flex:1; }
+.phrase-romaji { font-size:15px; font-weight:600; color:var(--ink); margin-bottom:2px; }
+.phrase-es { font-size:15px; color:var(--ink-mid); }
+.phrase-en { font-size:13px; color:var(--ink-light); font-style:italic; margin-top:2px; }
+.phrase-actions { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+.phrase-btn { display:inline-flex; align-items:center; gap:5px; padding:7px 14px; border-radius:999px; font-size:13px; text-decoration:none; border:1.5px solid var(--line-strong); color:var(--ink-mid); background:var(--washi-dark); cursor:pointer; transition:all 0.2s; font-family:&#39;Noto Sans JP&#39;,sans-serif; }
+.phrase-btn:hover { background:var(--vermillion); color:#fff; border-color:var(--vermillion); }
+.phrase-btn.audio-btn { border-color:rgba(192,57,43,0.4); color:var(--vermillion); }
+.phrase-section-head { font-family:&#39;Noto Serif JP&#39;,serif; font-size:16px; font-weight:700; color:var(--ink); padding:20px 16px 8px; }
+
+/* ── TIPS ── */
+.tips-list { display:flex; flex-direction:column; gap:10px; padding:0 16px; }
+.tip-card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start; box-shadow:var(--shadow); }
+.tip-icon-lg { font-size:28px; flex-shrink:0; }
+.tip-body { flex:1; }
+.tip-title { font-family:&#39;Noto Serif JP&#39;,serif; font-size:16px; font-weight:700; margin-bottom:4px; }
+.tip-text { font-size:15px; color:var(--ink-mid); line-height:1.5; }
+
+/* ── FOOTER ── */
+.site-footer { background:var(--ink); color:rgba(247,242,232,0.5); text-align:center; padding:32px 20px; font-size:14px; font-style:italic; }
+.site-footer strong { color:var(--gold-light); }
+
+/* ── LANGUAGE ── */
+[data-en] .es-text { display:none; }
+[data-en] .en-text { display:inline; }
+.en-text { display:none; }
+.es-text { display:inline; }
+[data-en] .es-block { display:none; }
+[data-en] .en-block { display:block; }
+.en-block { display:none; }
+.es-block { display:block; }
+
+@media (min-width:480px) {
+  .hero-title { font-size:46px; }
+  .day-title { font-size:19px; }
+  .sight-card { width:210px; }
+}
+@media (min-width:700px) {
+  .days-list, .phrases-grid, .tips-list { padding:0 24px; }
+  .carousel-wrap { padding:0 24px 20px; }
+  .event-card { margin:0 24px 12px; }
+}
+    </style>
+  </head>
+  <body>
+    <!-- LANGUAGE TOGGLE -->
+    <div class="lang-bar">
+      <span style="font-size:14px;opacity:0.7">      🌏
+</span>
+      <button class="lang-btn active" id="btn-es" onclick="setLang(&#39;es&#39;)">
+        Español
+      </button>
+      <button class="lang-btn" id="btn-en" onclick="setLang(&#39;en&#39;)">
+        English
+      </button>
+    </div>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-img-row">
+        <div>
+          <img src="images/img00.jpg" alt="Tokio" />
+        </div>
+        <div>
+          <img src="images/img01.jpg" alt="Kioto" />
+        </div>
+        <div>
+          <img src="images/img02.jpg" alt="Osaka" />
+        </div>
+      </div>
+      <div class="hero-overlay">
+      </div>
+      <div class="hero-content">
+        <div class="hero-jp">
+          日本 · 五月 · 二〇二六
+        </div>
+        <div class="hero-title">
+          <span class="es-text">          Japón
+          <br />
+          <span class="accent">          Mayo 2026
+</span>
+</span>
+          <span class="en-text">          Japan
+          <br />
+          <span class="accent">          May 2026
+</span>
+</span>
+        </div>
+        <div class="hero-dates">
+          <span class="es-text">          ✈️ 10 mayo → 22 mayo · Tokio · Kioto · Osaka
+</span>
+          <span class="en-text">          ✈️ May 10 → May 22 · Tokyo · Kyoto · Osaka
+</span>
+        </div>
+      </div>
+    </div>
+    <!-- COUNTDOWN -->
+    <div class="countdown-strip" id="countdown-strip">
+      <div class="countdown-block">
+        <div class="countdown-num" id="cd-days">
+          --
+        </div>
+        <div class="countdown-label" id="cd-unit">
+          <span class="es-text">          DÍAS
+</span>
+          <span class="en-text">          DAYS
+</span>
+        </div>
+      </div>
+      <div class="countdown-sep">
+        ·
+      </div>
+      <div style="font-size:16px;color:rgba(247,242,232,0.85);text-align:center" id="countdown-label">
+        <span class="es-text">        para el gran viaje 🌸
+</span>
+        <span class="en-text">        Until the big trip 🌸
+</span>
+      </div>
+    </div>
+    <!-- TODAY SPOTLIGHT -->
+    <div class="today-spotlight" id="today-spotlight" style="display:none;">
+    </div>
+    <!-- CITY NAV -->
+    <div class="city-nav-wrap" id="city-nav-wrap">
+      <nav class="city-nav city-nav-cities">
+        <button class="city-tab active" data-city="tokio" onclick="showCity(&#39;tokio&#39;,this)">
+          🗼
+          <span class="es-text">          Tokio
+</span>
+          <span class="en-text">          Tokyo
+</span>
+        </button>
+        <button class="city-tab" data-city="kioto" onclick="showCity(&#39;kioto&#39;,this)">
+          ⛩️
+          <span class="es-text">          Kioto
+</span>
+          <span class="en-text">          Kyoto
+</span>
+        </button>
+        <button class="city-tab" data-city="osaka" onclick="showCity(&#39;osaka&#39;,this)">
+          🦌🏮
+          <span class="es-text">          Nara/Osaka
+</span>
+          <span class="en-text">          Nara/Osaka
+</span>
+        </button>
+      </nav>
+      <nav class="city-nav city-nav-extras">
+        <button class="city-tab" data-city="frases" onclick="showCity(&#39;frases&#39;,this)">
+          🗣️
+          <span class="es-text">          Frases
+</span>
+          <span class="en-text">          Phrases
+</span>
+        </button>
+        <button class="city-tab" data-city="consejos" onclick="showCity(&#39;consejos&#39;,this)">
+          💡
+          <span class="es-text">          Consejos
+</span>
+          <span class="en-text">          Tips
+</span>
+        </button>
+        <a class="city-tab" href="https://bigo415x.github.io/japan-audio-tour" target="_blank" rel="noopener">        🎧
+        <span class="es-text">        Audio Tours
+</span>
+        <span class="en-text">        Audio Tours
+</span>
+</a>
+      </nav>
+    </div>
+    <main class="main">
+      <!-- ════════════════════════════════════════
+     TOKIO
+════════════════════════════════════════ -->
+      <section class="city-section active" id="sec-tokio">
+        <div class="city-header">
+          <div class="city-header-title" style="color:var(--vermillion)">
+            🗼
+            <span class="es-text">            Tokio
+</span>
+            <span class="en-text">            Tokyo
+</span>
+          </div>
+          <div class="city-header-sub">
+            <span class="es-text">            11–16 de mayo · 5 noches
+</span>
+            <span class="en-text">            May 11–16 · 5 nights
+</span>
+          </div>
+          <div class="city-hotel">
+            🏨 Shinagawa Prince Hotel
+            <br />
+            <div class="hotel-address">
+              108-8611 Takanawa 4-10-30, Minato, Tokyo
+            </div>
+          </div>
+        </div>
+        <div class="section-label">
+          <div class="section-label-line">
+          </div>
+          <div class="section-label-text">
+            <span class="es-text">            Lugares Destacados
+</span>
+            <span class="en-text">            Highlights
+</span>
+          </div>
+          <div class="section-label-line">
+          </div>
+        </div>
+        <div class="carousel-wrap">
+          <div class="carousel-track" id="carousel-tokio">
+            <div class="sight-card">
+              <img src="https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2019/07/scramble-crossing-shibuya-iStock-Nikada-1024x600.jpg" alt="Shibuya" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🚦
+                  <span class="es-text">                  Cruce de Shibuya
+</span>
+                  <span class="en-text">                  Shibuya Crossing
+</span>
+                </div>
+                <div class="sight-desc es-text">
+                  El cruce peatonal más famoso del mundo — 3,000 personas por ciclo.
+                </div>
+                <div class="sight-desc en-text">
+                  The world&#39;s most famous crossing — 3,000 people per cycle.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Vista desde el Starbucks 2do piso
+</span>
+                  <span class="en-text">                  View from Starbucks 2nd floor
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2020/05/meiji-jingu-iStock-499807771-1024x683.jpg" alt="Meiji Jingu" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  ⛩️ Meiji Jingū
+                </div>
+                <div class="sight-desc es-text">
+                  Santuario rodeado de 70,000 árboles en el corazón de Tokio.
+                </div>
+                <div class="sight-desc en-text">
+                  Shinto shrine surrounded by 70,000 trees in the heart of Tokyo.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Torii al amanecer = mágicos
+</span>
+                  <span class="en-text">                  Torii at sunrise = magical
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="images/img05.jpg" alt="Sensoji" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🏮 Sensō-ji · Asakusa
+                </div>
+                <div class="sight-desc es-text">
+                  El templo más antiguo de Tokio, con la puerta Kaminarimon.
+                </div>
+                <div class="sight-desc en-text">
+                  Tokyo&#39;s oldest temple, with the iconic Kaminarimon gate.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Ir temprano antes de las multitudes
+</span>
+                  <span class="en-text">                  Go early before the crowds
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://ryogokukokugikan.com/images/ryogoku-kokugikan-sumo-match-action-close-up-wrestlers.webp" alt="Sumo" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🥋
+                  <span class="es-text">                  Sumo en Ryōgoku
+</span>
+                  <span class="en-text">                  Sumo at Ryōgoku
+</span>
+                </div>
+                <div class="sight-desc es-text">
+                  Natsu Basho — el torneo nacional de verano. 1,500 años de historia.
+                </div>
+                <div class="sight-desc en-text">
+                  Natsu Basho — the national summer tournament. 1,500 years of history.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Llegar a las 3pm para los combates principales
+</span>
+                  <span class="en-text">                  Arrive 3pm for the main bouts
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://www.byfood.com/api/public/assets/26843/content" alt="Shinjuku" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🌃
+                  <span class="es-text">                  Shinjuku de Noche
+</span>
+                  <span class="en-text">                  Shinjuku at Night
+</span>
+                </div>
+                <div class="sight-desc es-text">
+                  Neón, ramen y los callejones más atmosféricos de Japón.
+                </div>
+                <div class="sight-desc en-text">
+                  Neon, ramen, and Japan&#39;s most atmospheric alleyways.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Golden Gai: 200 bares de 6 asientos
+</span>
+                  <span class="en-text">                  Golden Gai: 200 bars with 6 seats each
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://www.datocms-assets.com/101439/1725335240-hakone-ropeway-over-owakudani-valley.webp?h=640&amp;w=1280&amp;fm=webp" alt="Hakone" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🗻 Hakone
+                </div>
+                <div class="sight-desc es-text">
+                  Ropeway sobre un volcán activo. Vistas del Monte Fuji en día claro.
+                </div>
+                <div class="sight-desc en-text">
+                  Ropeway over an active volcano. Views of Mt. Fuji on clear days.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Loop completo con Hakone Free Pass
+</span>
+                  <span class="en-text">                  Full loop with Hakone Free Pass
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://cdn.gaijinpot.com/app/uploads/sites/4/2017/05/Akihabara-Electric-Town.jpg" alt="Akihabara" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🎮 Akihabara
+                </div>
+                <div class="sight-desc es-text">
+                  Paraíso de la electrónica, manga y cultura pop japonesa.
+                </div>
+                <div class="sight-desc en-text">
+                  Paradise for electronics, manga, and Japanese pop culture.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Gachapon = mejores souvenirs baratos
+</span>
+                  <span class="en-text">                  Gachapon = best cheap souvenirs
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://anaintercontinental-tokyo.jp/wp-content/uploads/2018/07/Ueno-Park-1024x576.jpg" alt="Ueno Park" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🌳 Ueno Park
+                </div>
+                <div class="sight-desc es-text">
+                  5 museos nacionales, zoo y templo flotante en estanque.
+                </div>
+                <div class="sight-desc en-text">
+                  5 national museums, zoo, and a floating temple on a pond.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Plano y lleno de bancas — ideal para descansar
+</span>
+                  <span class="en-text">                  Flat and full of benches — perfect to rest
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://en.japantravel.com/photo/poi-140-207584/1200x630/tokyo-ameyoko-207584.jpg" alt="Ameyoko" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🛒 Ameyoko · Ueno
+                </div>
+                <div class="sight-desc es-text">
+                  400+ puestos de comida callejera y mariscos frescos.
+                </div>
+                <div class="sight-desc en-text">
+                  400+ stalls of street food and fresh seafood.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Kushiage y cangrejo al paso
+</span>
+                  <span class="en-text">                  Kushiage and crab on the go
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/blogs/2147504516/images/55d24b2-e42-7482-f0bc-743cb3bf02_NEWSLETTER_-_Marketing_43_.png" alt="Omoide Yokocho" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🍢 Omoide Yokocho
+                </div>
+                <div class="sight-desc es-text">
+                  Callejón de yakitori humeante en Shinjuku, desde los años 50.
+                </div>
+                <div class="sight-desc en-text">
+                  Smoky yakitori alley in Shinjuku, since the 1950s.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  La Tokio más auténtica en 50 metros
+</span>
+                  <span class="en-text">                  The most authentic Tokyo in 50 meters
+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-dots" id="dots-tokio">
+          </div>
+        </div>
+        <!-- Special Events Tokyo -->
+        <div class="section-label">
+          <div class="section-label-line">
+          </div>
+          <div class="section-label-text">
+            <span class="es-text">            Eventos Especiales
+</span>
+            <span class="en-text">            Special Events
+</span>
+          </div>
+          <div class="section-label-line">
+          </div>
+        </div>
+        <div class="event-card">
+          <img src="https://www.datocms-assets.com/101439/1725335240-hakone-ropeway-over-owakudani-valley.webp?h=640&amp;w=1280&amp;fm=webp" alt="Hakone" />
+          <div class="event-card-content">
+            <div class="event-tag">
+              🗻
+              <span class="es-text">              Martes 12 mayo — Todo el día
+</span>
+              <span class="en-text">              Tuesday May 12 — All day
+</span>
+            </div>
+            <div class="event-title">
+              Hakone Day Trip
+            </div>
+            <div class="event-desc es-text">
+              Ropeway de 4km sobre el volcán Owakudani — fumarolas de azufre, géiseres y, en día claro, el Monte Fuji en todo su esplendor. Lago Ashi en barco pirata. Uno de los paisajes más dramáticos de Japón.
+            </div>
+            <div class="event-desc en-text">
+              4km ropeway over Owakudani volcano — sulfur fumaroles, geysers, and on a clear day, Mt. Fuji in full splendor. Lake Ashi by pirate ship. One of Japan&#39;s most dramatic landscapes.
+            </div>
+          </div>
+        </div>
+        <div class="event-card" style="margin-top:10px">
+          <img src="https://ryogokukokugikan.com/images/ryogoku-kokugikan-sumo-match-action-close-up-wrestlers.webp" alt="Sumo" />
+          <div class="event-card-content">
+            <div class="event-tag">
+              🥋
+              <span class="es-text">              Miércoles 13 mayo — 3pm
+</span>
+              <span class="en-text">              Wednesday May 13 — 3pm
+</span>
+            </div>
+            <div class="event-title">
+              <span class="es-text">              Natsu Basho — Torneo de Sumo
+</span>
+              <span class="en-text">              Natsu Basho — Sumo Tournament
+</span>
+            </div>
+            <div class="event-desc es-text">
+              El torneo nacional de verano en el Ryōgoku Kokugikan. Arte marcial shinto de 1,500 años. Los luchadores arrojan sal al ring en un ritual de purificación. Chanko-nabe, el guiso de los luchadores, se sirve en el estadio.
+            </div>
+            <div class="event-desc en-text">
+              The national summer tournament at Ryōgoku Kokugikan. A 1,500-year-old Shinto martial art. Wrestlers throw salt onto the ring in a purification ritual. Chanko-nabe, the wrestlers&#39; stew, is served inside the stadium.
+            </div>
+          </div>
+        </div>
+        <div class="event-card" style="margin-top:10px">
+          <img src="https://www.japan-guide.com/g18/3063_02.jpg" alt="Sanja Matsuri" />
+          <div class="event-card-content">
+            <div class="event-tag">
+              🎎
+              <span class="es-text">              Viernes 15 mayo — 1pm
+</span>
+              <span class="en-text">              Friday May 15 — 1pm
+</span>
+            </div>
+            <div class="event-title">
+              Sanja Matsuri
+            </div>
+            <div class="event-desc es-text">
+              El festival más famoso de Tokio — sacerdotes y geishas en trajes del período Edo desfilan por Asakusa con músicos en carrozas decoradas. Uno de los tres grandes festivales de Tokio.
+            </div>
+            <div class="event-desc en-text">
+              Tokyo&#39;s most famous festival — priests and geishas in Edo-period costumes parade through Asakusa with musicians on decorated floats. One of Tokyo&#39;s three great festivals.
+            </div>
+          </div>
+        </div>
+        <div class="event-card" style="margin-top:10px">
+          <img src="https://www.giants.jp/images/pages/multiLanguage/link/img_schedule_sp.jpg?width=828" alt="Tokyo Dome" />
+          <div class="event-card-content">
+            <div class="event-tag">
+              ⚾
+              <span class="es-text">              Viernes 15 mayo — 5pm
+</span>
+              <span class="en-text">              Friday May 15 — 5pm
+</span>
+            </div>
+            <div class="event-title">
+              Giants vs BayStars · Tokyo Dome
+            </div>
+            <div class="event-desc es-text">
+              ¡Béisbol japonés! Los fanáticos cantan en coro — cada bateador tiene su propio himno. Vendedoras de cerveza con barriles en la espalda. Una experiencia completamente distinta a la MLB.
+            </div>
+            <div class="event-desc en-text">
+              Japanese baseball! Fans sing in unison — each batter has their own anthem. Beer vendors carry kegs on their backs. A completely different experience from MLB.
+            </div>
+          </div>
+        </div>
+        <!-- Days Tokyo -->
+        <div class="section-label">
+          <div class="section-label-line">
+          </div>
+          <div class="section-label-text">
+            <span class="es-text">            Día a Día
+</span>
+            <span class="en-text">            Day by Day
+</span>
+          </div>
+          <div class="section-label-line">
+          </div>
+        </div>
+        <div class="days-list">
+          <!-- DAY 11 -->
+          <div class="day-card" data-date="2026-05-11">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--vermillion)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--vermillion)">
+                    11
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Lun · Mayo
+</span>
+                    <span class="en-text">                    Mon · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    <span class="es-text">                    ✈️ Llegada a Tokio · Narita → Shinagawa
+</span>
+                    <span class="en-text">                    ✈️ Arrival in Tokyo · Narita → Shinagawa
+</span>
+                  </div>
+                  <div class="day-rhythm">
+                    <span class="es-text">                    Llegada por la tarde
+</span>
+                    <span class="en-text">                    Afternoon arrival
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    ✈️
+                    <span class="es-text">                    Al llegar al aeropuerto
+</span>
+                    <span class="en-text">                    Upon arriving at the airport
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏦
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Efectivo en cajero 7-Eleven del aeropuerto
+</span>
+                    <span class="en-text">                    Cash at the airport 7-Eleven ATM
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Sacar ¥30,000–¥50,000 para el grupo. Los cajeros de 7-Eleven aceptan tarjetas internacionales. Japón sigue siendo muy efectivo — hay lugares donde no aceptan tarjetas.
+</span>
+                    <span class="en-text">                    Withdraw ¥30,000–¥50,000 for the group. 7-Eleven ATMs accept international cards. Japan is still very cash-based — some places don&#39;t accept cards.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🚆
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Comprar boletos N&#39;EX (Narita Express)
+</span>
+                    <span class="en-text">                    Buy N&#39;EX (Narita Express) tickets
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    En las taquillas o máquinas de la estación de tren del aeropuerto. Lleva directo a Shinagawa (~70 min, ~¥3,000). Este tren es cómodo y tiene espacio para maletas.
+</span>
+                    <span class="en-text">                    At the airport train station ticket counters or machines. Goes directly to Shinagawa (~70 min, ~¥3,000). This train is comfortable and has luggage space.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    💳
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Tarjetas Suica
+</span>
+                    <span class="en-text">                    Suica Cards
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Comprar en el aeropuerto o en Shinagawa Station. Si hay mucha fila en Narita, priorizar el tren — se compran después en Shinagawa. Las Suica sirven para todo el metro y convenience stores.
+</span>
+                    <span class="en-text">                    Buy at the airport or at Shinagawa Station. If there&#39;s a long line at Narita, prioritize the train — buy them later at Shinagawa. Suica cards work for all subways and convenience stores.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    💡
+                    <span class="es-text">                    Shinagawa Prince Hotel está justo cruzando la calle desde Shinagawa Station (salida Este). Esta estación será nuestro hub todos los días.
+</span>
+                    <span class="en-text">                    Shinagawa Prince Hotel is right across the street from Shinagawa Station (East exit). This station will be our daily hub.
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌆
+                    <span class="es-text">                    Llegada al hotel (tarde/noche)
+</span>
+                    <span class="en-text">                    Hotel arrival (late afternoon/evening)
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏨
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Check-in Shinagawa Prince Hotel
+</span>
+                    <span class="en-text">                    Check-in Shinagawa Prince Hotel
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Dejar maletas, refrescarse. El hotel es grande y moderno — primera impresión de Japón. Tiene food court, tiendas y un 7-Eleven en el complejo.
+</span>
+                    <span class="en-text">                    Drop bags, freshen up. The hotel is large and modern — first impression of Japan. It has a food court, shops, and a 7-Eleven in the complex.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏪
+</span>
+                    <span class="time-text">                    <strong style="color:var(--vermillion)">                    ⚠️
+                    <span class="es-text">                    Farmacia cierra a las 8pm
+</span>
+                    <span class="en-text">                    Pharmacy closes at 8pm
+</span>
+</strong>
+                    —
+                    <span class="es-text">                    si necesitan medicamentos, ir antes de las 8pm. Está dentro del complejo del hotel.
+</span>
+                    <span class="en-text">                    if you need medications, go before 8pm. It&#39;s inside the hotel complex.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌙
+                    <span class="es-text">                    Primera noche en Japón
+</span>
+                    <span class="en-text">                    First night in Japan
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🚇
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Opción A (si hay energía):
+</span>
+                    <span class="en-text">                    Option A (if energetic):
+</span>
+</strong>
+                    <span class="es-text">                    Shibuya — solo 20 min en tren desde Shinagawa. Ver el cruce famoso iluminado de noche, comer algo, pasear. Regreso antes de medianoche.
+</span>
+                    <span class="en-text">                    Shibuya — just 20 min by train from Shinagawa. See the famous crossing lit up at night, get food, stroll around. Return before midnight.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🍱
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Opción B (si están cansados — lo más probable):
+</span>
+                    <span class="en-text">                    Option B (if tired — most likely):
+</span>
+</strong>
+                    <span class="es-text">                    Food court del hotel — ramen, sushi, curry japonés, todo disponible. Sin tener que salir.
+</span>
+                    <span class="en-text">                    Hotel food court — ramen, sushi, Japanese curry, all available. No need to go out.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🛒
+                    <span class="es-text">                    Meta antes de dormir: comprar un desayuno ligero en el 7-Eleven del hotel para mañana. Hay que salir en el tren de las 8:34am para Hakone.
+</span>
+                    <span class="en-text">                    Goal before sleeping: buy a light breakfast at the hotel 7-Eleven for tomorrow. We need to leave on the 8:34am train for Hakone.
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DAY 12 -->
+          <div class="day-card" data-date="2026-05-12">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--vermillion)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--vermillion)">
+                    12
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Mar · Mayo
+</span>
+                    <span class="en-text">                    Tue · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    <span class="es-text">                    🗻 Hakone Day Trip + 🌃 Shinjuku de noche
+</span>
+                    <span class="en-text">                    🗻 Hakone Day Trip + 🌃 Shinjuku at night
+</span>
+                  </div>
+                  <div class="day-rhythm" style="color:var(--vermillion);border-color:rgba(192,57,43,0.4)">
+                    <span class="es-text">                    Día intenso ✨
+</span>
+                    <span class="en-text">                    Intense day ✨
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Mañana — Hakone
+</span>
+                    <span class="en-text">                    Morning — Hakone
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🚅
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Shinkansen 8:34am desde Shinagawa
+</span>
+                    <span class="en-text">                    Shinkansen 8:34am from Shinagawa
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Tren bala a Odawara (~35 min). En Odawara, comprar el
+                    <strong>                    Hakone Free Pass
+</strong>
+                    — incluye todos los transportes del loop y descuentos en atracciones (¥4,600/persona).
+</span>
+                    <span class="en-text">                    Bullet train to Odawara (~35 min). At Odawara, buy the
+                    <strong>                    Hakone Free Pass
+</strong>
+                    — includes all transport on the loop and discounts at attractions (¥4,600/person).
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🚞
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    El Loop de Hakone (en orden):
+</span>
+                    <span class="en-text">                    The Hakone Loop (in order):
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    ①
+                    <strong>                    Hakone Tozan Railway
+</strong>
+                    — tren de cremallera que zigzaguea la montaña entre jardines de hortensias
+                    <br />
+                    ②
+                    <strong>                    Hakone Tozan Cable Car
+</strong>
+                    — hacia Sounzan
+                    <br />
+                    ③
+                    <strong>                    Hakone Ropeway
+</strong>
+                    — 4km sobre el volcán activo. Vistas de Owakudani con humo de azufre y fumarolas. En día claro, el
+                    <strong>                    Monte Fuji aparece al fondo
+</strong>
+                    — una de las fotos más icónicas de Japón
+                    <br />
+                    ④
+                    <strong>                    Lago Ashi (Ashinoko)
+</strong>
+                    — crucero en barco pirata con vistas del Fuji reflejado en el agua
+                    <br />
+                    ⑤
+                    <strong>                    Bus Hakone
+</strong>
+                    de vuelta a Odawara
+</span>
+                    <span class="en-text">                    ①
+                    <strong>                    Hakone Tozan Railway
+</strong>
+                    — rack train zigzagging up the mountain through hydrangea gardens
+                    <br />
+                    ②
+                    <strong>                    Hakone Tozan Cable Car
+</strong>
+                    — toward Sounzan
+                    <br />
+                    ③
+                    <strong>                    Hakone Ropeway
+</strong>
+                    — 4km over the active volcano. Views of Owakudani with sulfur smoke and fumaroles. On a clear day,
+                    <strong>                    Mt. Fuji appears in the background
+</strong>
+                    — one of Japan&#39;s most iconic photos
+                    <br />
+                    ④
+                    <strong>                    Lake Ashi (Ashinoko)
+</strong>
+                    — pirate ship cruise with views of Fuji reflected in the water
+                    <br />
+                    ⑤
+                    <strong>                    Hakone Bus
+</strong>
+                    back to Odawara
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🍱
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Almuerzo ligero en Hakone
+</span>
+                    <span class="en-text">                    Light lunch in Hakone
+</span>
+</strong>
+                    —
+                    <span class="es-text">                    precios altos en zona turística. Un onigiri, ramen o soba sencillo — guardamos el hambre para la cena en Tokio.
+</span>
+                    <span class="en-text">                    prices are high in the tourist area. A simple onigiri, ramen, or soba — save your appetite for dinner in Tokyo.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    💡
+                    <span class="es-text">                    El Fuji solo se ve si hay cielo despejado — en Mayo hay buenas probabilidades pero no garantías. El paisaje de Owakudani con géiseres vale el viaje de todas formas.
+</span>
+                    <span class="en-text">                    Mt. Fuji is only visible with clear skies — May has good odds but no guarantees. The Owakudani geyser landscape is worth the trip regardless.
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    ☀️
+                    <span class="es-text">                    Regreso a Tokio
+</span>
+                    <span class="en-text">                    Return to Tokyo
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🕒
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Salir de Hakone antes de las 3pm
+</span>
+                    <span class="en-text">                    Leave Hakone before 3pm
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Shinkansen de regreso a Shinagawa. Breve descanso en el hotel, cambiarse de ropa. La noche en Shinjuku empieza a las 5pm.
+</span>
+                    <span class="en-text">                    Shinkansen back to Shinagawa. Brief rest at the hotel, change clothes. The Shinjuku night starts at 5pm.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌙
+                    <span class="es-text">                    Noche — Shinjuku (5pm)
+</span>
+                    <span class="en-text">                    Evening — Shinjuku (5pm)
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏛️
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Mirador Gobierno Metropolitano de Tokio
+</span>
+                    <span class="en-text">                    Tokyo Metropolitan Government Observatory
+</span>
+</strong>
+                    —
+                    <span class="es-text">                    Gratuito. Panorámica de 360° de toda la ciudad al atardecer. En día claro se ve el Fuji desde aquí también.
+</span>
+                    <span class="en-text">                    Free. 360° panoramic city view at sunset. On a clear day you can also see Mt. Fuji from here.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🍢
+</span>
+                    <span class="time-text">                    <strong>                    Omoide Yokocho
+</strong>
+                    (
+                    <span class="es-text">                    Callejón de los Recuerdos
+</span>
+                    <span class="en-text">                    Memory Lane
+</span>
+                    ) —
+                    <span class="es-text">                    Callejón estrecho con puestos de yakitori humeantes desde los años 50. La Tokio más auténtica en 50 metros.
+</span>
+                    <span class="en-text">                    Narrow alley with smoky yakitori stalls since the 1950s. The most authentic Tokyo in 50 meters.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🦖
+</span>
+                    <span class="time-text">                    <strong>                    Godzilla Head
+</strong>
+                    —
+                    <span class="es-text">                    La cabeza gigante asoma del techo del Hotel Gracery. Foto obligatoria.
+</span>
+                    <span class="en-text">                    The giant head peeks out from the Hotel Gracery rooftop. A must-take photo.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    ⛩️
+</span>
+                    <span class="time-text">                    <strong>                    Hanazono Shrine
+</strong>
+                    —
+                    <span class="es-text">                    Santuario shinto en pleno Shinjuku. Tranquilo y místico entre el caos de la ciudad.
+</span>
+                    <span class="en-text">                    Shinto shrine in the heart of Shinjuku. Quiet and mystical amid the city chaos.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🍺
+</span>
+                    <span class="time-text">                    <strong>                    Golden Gai
+</strong>
+                    —
+                    <span class="es-text">                    Laberinto de 200 bares minúsculos (6 asientos cada uno). El bar crawl más único del mundo. Se puede cenar aquí también.
+</span>
+                    <span class="en-text">                    Maze of 200 tiny bars (6 seats each). The world&#39;s most unique bar crawl. You can also dine here.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🗺️
+                    <span class="es-text">                    Tour de 1.3 millas, ~1 hora caminando. La cena puede ser en cualquier punto del recorrido — no hay lugar malo en Shinjuku de noche.
+</span>
+                    <span class="en-text">                    1.3-mile tour, ~1 hour walking. Dinner can be at any point along the route — nowhere is bad in Shinjuku at night.
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DAY 13 -->
+          <div class="day-card" data-date="2026-05-13">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--vermillion)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--vermillion)">
+                    13
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Mié · Mayo
+</span>
+                    <span class="en-text">                    Wed · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    🏮 Asakusa + 🛒 Ueno/Ameyoko + 🥋
+                    <span class="es-text">                    Sumo (3pm)
+</span>
+                    <span class="en-text">                    Sumo (3pm)
+</span>
+                  </div>
+                  <div class="day-rhythm" style="color:var(--vermillion);border-color:rgba(192,57,43,0.4)">
+                    <span class="es-text">                    Día especial 🥋
+</span>
+                    <span class="en-text">                    Special day 🥋
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Mañana — Asakusa
+</span>
+                    <span class="en-text">                    Morning — Asakusa
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏮
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Tour de audio Asakusa (1hr, 0.7mi)
+</span>
+                    <span class="en-text">                    Asakusa audio tour (1hr, 0.7mi)
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Kaminarimon Gate → Nakamise Shopping Street → Hozomon Gate → Gojunoto (Pagoda de 5 pisos) → Sensō-ji Temple → Asakusa Shrine → Tienda de té → Estatua de Ichikawa Danjuro IX →
+                    <strong>                    Hanayashiki
+</strong>
+                    (el parque de diversiones más antiguo de Japón, desde 1853).
+</span>
+                    <span class="en-text">                    Kaminarimon Gate → Nakamise Shopping Street → Hozomon Gate → Gojunoto (5-story Pagoda) → Sensō-ji Temple → Asakusa Shrine → Tea Shop → Ichikawa Danjuro IX statue →
+                    <strong>                    Hanayashiki
+</strong>
+                    (Japan&#39;s oldest amusement park, since 1853).
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    💡
+                    <span class="es-text">                    Asakusa es el Tokio más antiguo. El templo de 1,400 años frente a los rascacielos modernos es uno de los paisajes más emblemáticos de Japón.
+</span>
+                    <span class="en-text">                    Asakusa is the oldest part of Tokyo. The 1,400-year-old temple against the modern skyline is one of Japan&#39;s most iconic views.
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    ☀️
+                    <span class="es-text">                    Mediodía — Ueno
+</span>
+                    <span class="en-text">                    Midday — Ueno
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🛒
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Mercado Ameyoko, Ueno
+</span>
+                    <span class="en-text">                    Ameyoko Market, Ueno
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    El mercado más animado de Tokio — 400+ puestos de comida callejera, mariscos frescos, ropa y electrónica. Probar: kushiage, camarones, cangrejo y snacks al paso.
+</span>
+                    <span class="en-text">                    Tokyo&#39;s liveliest market — 400+ stalls of street food, fresh seafood, clothing, and electronics. Try: kushiage, shrimp, crab, and snacks on the go.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🌳
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Ueno Park — pausa breve
+</span>
+                    <span class="en-text">                    Ueno Park — brief stop
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Uno de los parques más grandes de Tokio. Hogar de 5 museos nacionales, el zoo de Ueno (el más antiguo de Japón, 1882) y el estanque Shinobazu con su templo budista flotante. Regresamos con más tiempo el día siguiente.
+</span>
+                    <span class="en-text">                    One of Tokyo&#39;s largest parks. Home to 5 national museums, Ueno Zoo (Japan&#39;s oldest, 1882), and Shinobazu Pond with its floating Buddhist temple. We return for longer the next day.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌆
+                    <span class="es-text">                    Tarde — Torneo de Sumo
+</span>
+                    <span class="en-text">                    Afternoon — Sumo Tournament
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🥋
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Natsu Basho — Llegar al Ryōgoku Kokugikan a las 3pm
+</span>
+                    <span class="en-text">                    Natsu Basho — Arrive at Ryōgoku Kokugikan at 3pm
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Los combates más importantes (y los luchadores más grandes) son al final del día. El torneo termina ~6pm.
+</span>
+                    <span class="en-text">                    The most important bouts (and biggest wrestlers) are at the end of the day. The tournament ends ~6pm.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    📿
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Cultura del Sumo:
+</span>
+                    <span class="en-text">                    Sumo Culture:
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    • Arte marcial shinto de más de 1,500 años — cada elemento del ritual tiene significado religioso
+                    <br />
+                    • Los rikishi arrojan sal al dohyo (ring) antes del combate — ritual de purificación
+                    <br />
+                    • El objetivo: sacar al rival del ring o hacer que toque el suelo con algo que no sean sus pies
+                    <br />
+                    • Se puede gritar apoyo con respeto — el silencio durante el combate es valorado
+                    <br />
+                    • Comida del estadio:
+                    <strong>                    chanko-nabe
+</strong>
+                    , el guiso que comen los luchadores
+</span>
+                    <span class="en-text">                    • Shinto martial art over 1,500 years old — every element of the ritual has religious meaning
+                    <br />
+                    • Rikishi throw salt onto the dohyo (ring) before the bout — purification ritual
+                    <br />
+                    • The goal: push the opponent out of the ring or make them touch the ground with anything other than their feet
+                    <br />
+                    • You can shout encouragement respectfully — silence during the bout is valued
+                    <br />
+                    • Stadium food:
+                    <strong>                    chanko-nabe
+</strong>
+                    , the stew that wrestlers eat
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🎉
+                    <span class="es-text">                    El Natsu Basho (Torneo de Verano) es uno de los 6 torneos anuales oficiales. Solo hay 3 en Tokio por año — conseguir boletos es un verdadero privilegio.
+</span>
+                    <span class="en-text">                    The Natsu Basho (Summer Tournament) is one of 6 official annual tournaments. Only 3 are held in Tokyo per year — getting tickets is a true privilege.
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DAY 14 -->
+          <div class="day-card" data-date="2026-05-14">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--vermillion)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--vermillion)">
+                    14
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Jue · Mayo
+</span>
+                    <span class="en-text">                    Thu · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    🌳 Ueno Park + 🎮 Akihabara
+                    <span class="es-text">                    o
+</span>
+                    <span class="en-text">                    or
+</span>
+                    🚦 Shibuya
+                  </div>
+                  <div class="day-rhythm">
+                    <span class="es-text">                    Ritmo medio
+</span>
+                    <span class="en-text">                    Medium pace
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Mañana — Ueno Park
+</span>
+                    <span class="en-text">                    Morning — Ueno Park
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🌳
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Tour de audio Ueno Park (2hrs, 2.4mi)
+</span>
+                    <span class="en-text">                    Ueno Park audio tour (2hrs, 2.4mi)
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Estatua de Saigo Takamori → Kiyomizu Kannon Temple → Ueno Royal Museum → National Museum of Western Art → National Science Museum → Tokyo National Museum → Tokyo Metropolitan Art Museum → Ueno Zoo → Kanei-ji Pagoda → Tosho-gu Shrine → Ueno Daibutsu → Shinobazu-no-ike Bentendo Temple → Shitamachi Museum.
+</span>
+                    <span class="en-text">                    Saigo Takamori Statue → Kiyomizu Kannon Temple → Ueno Royal Museum → National Museum of Western Art → National Science Museum → Tokyo National Museum → Tokyo Metropolitan Art Museum → Ueno Zoo → Kanei-ji Pagoda → Tosho-gu Shrine → Ueno Daibutsu → Shinobazu-no-ike Bentendo Temple → Shitamachi Museum.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🪑
+                    <span class="es-text">                    Ueno Park es plano y lleno de bancas. Perfecto para los papás — se pueden sentar cuantas veces necesiten sin sentirse mal.
+</span>
+                    <span class="en-text">                    Ueno Park is flat and full of benches. Perfect for parents — sit down as many times as needed without feeling bad.
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    ☀️
+                    <span class="es-text">                    Tarde — A elegir
+</span>
+                    <span class="en-text">                    Afternoon — Your choice
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🎮
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Opción A: Akihabara
+</span>
+                    <span class="en-text">                    Option A: Akihabara
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Electric Town — el barrio de la electrónica, manga y arcades de varios pisos. Tiendas de 8 pisos de videojuegos retro, figuras de colección y mechas. Un mundo completamente aparte.
+</span>
+                    <span class="en-text">                    Electric Town — the neighborhood of electronics, manga, and multi-floor arcades. 8-story stores of retro video games, collectible figures, and mechas. A world completely apart.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🚦
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Opción B: Tour de audio Shibuya (2hrs, 2.4mi)
+</span>
+                    <span class="en-text">                    Option B: Shibuya audio tour (2hrs, 2.4mi)
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Shibuya Scramble Square → Estatua de Hachiko → Shibuya Crossing → Shibuya 109 → Center-Gai → Mandarake → Koen-dori → Yoyogi Park → Omotesando Ave → Takeshita Street → Meiji Jingū.
+</span>
+                    <span class="en-text">                    Shibuya Scramble Square → Hachiko Statue → Shibuya Crossing → Shibuya 109 → Center-Gai → Mandarake → Koen-dori → Yoyogi Park → Omotesando Ave → Takeshita Street → Meiji Jingū.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌙
+                    <span class="es-text">                    Noche
+</span>
+                    <span class="en-text">                    Evening
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🍽️
+</span>
+                    <span class="time-text">                    <span class="es-text">                    Cena libre — explorar el barrio donde terminamos, o volver a Shinagawa para cenar en el food court.
+</span>
+                    <span class="en-text">                    Free dinner — explore the neighborhood we end up in, or return to Shinagawa to eat at the food court.
+</span>
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DAY 15 -->
+          <div class="day-card" data-date="2026-05-15">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--vermillion)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--vermillion)">
+                    15
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Vie · Mayo
+</span>
+                    <span class="en-text">                    Fri · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    🎎 Sanja Matsuri (1pm) + ⚾ Giants (5pm)
+                  </div>
+                  <div class="day-rhythm" style="color:var(--vermillion);border-color:rgba(192,57,43,0.4)">
+                    <span class="es-text">                    ¡Día doble especial!
+</span>
+                    <span class="en-text">                    Double special day!
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Mañana libre
+</span>
+                    <span class="en-text">                    Free morning
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    ☕
+</span>
+                    <span class="time-text">                    <span class="es-text">                    Descanso o sights pendientes. Mañana tranquila antes del festival.
+</span>
+                    <span class="en-text">                    Rest or pending sights. Quiet morning before the festival.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🛍️
+</span>
+                    <span class="time-text">                    <span class="es-text">                    Última oportunidad para compras en Tokio antes de partir a Kioto mañana.
+</span>
+                    <span class="en-text">                    Last chance for shopping in Tokyo before heading to Kyoto tomorrow.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🎎
+                    <span class="es-text">                    Tarde — Sanja Matsuri
+</span>
+                    <span class="en-text">                    Afternoon — Sanja Matsuri
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🎺
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Desfile Daigyoretsu — 1pm en Asakusa
+</span>
+                    <span class="en-text">                    Daigyoretsu Parade — 1pm in Asakusa
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Sacerdotes, geishas y funcionarios en trajes del período Edo desfilan desde Yanagi-dori → Umamichi St → Kaminarimon St → Kaminarimon Gate → Nakamise Shopping Street → Asakusa Shrine. Acompañados de músicos en carrozas decoradas.
+</span>
+                    <span class="en-text">                    Priests, geishas, and officials in Edo-period costumes parade from Yanagi-dori → Umamichi St → Kaminarimon St → Kaminarimon Gate → Nakamise Shopping Street → Asakusa Shrine. Accompanied by musicians on decorated floats.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🎭
+</span>
+                    <span class="time-text">                    <span class="es-text">                    El desfile incluye: música de festival, canciones tradicionales de bomberos, Danza Binzasara y Danza de la Garza Blanca.
+</span>
+                    <span class="en-text">                    The parade includes: festival music, traditional firefighter songs, Binzasara Dance, and White Heron Dance.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    ⚠️
+                    <span class="es-text">                    Se cancela en caso de lluvia. Revisar el pronóstico la noche anterior.
+</span>
+                    <span class="en-text">                    Cancelled in case of rain. Check the forecast the night before.
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    ⚾
+                    <span class="es-text">                    Noche — Tokyo Dome
+</span>
+                    <span class="en-text">                    Evening — Tokyo Dome
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏟️
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Llegar al Tokyo Dome para las 5pm
+</span>
+                    <span class="en-text">                    Arrive at Tokyo Dome by 5pm
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Giants vs BayStars. El béisbol japonés (NPB) es una experiencia completamente distinta a la MLB:
+                    <br />
+                    • Los fanáticos cantan en coro — cada bateador tiene su propio himno oficial
+                    <br />
+                    • Trompetas, tambores y porristas coordinadas
+                    <br />
+                    • Las vendedoras de cerveza llevan barriles en la espalda y sirven en las gradas
+                    <br />
+                    • La comida es excelente: karaage, takoyaki, curry japonés
+</span>
+                    <span class="en-text">                    Giants vs BayStars. Japanese baseball (NPB) is a completely different experience from MLB:
+                    <br />
+                    • Fans sing in unison — each batter has their own official anthem
+                    <br />
+                    • Trumpets, drums, and coordinated cheerleaders
+                    <br />
+                    • Beer vendors carry kegs on their backs and serve in the stands
+                    <br />
+                    • The food is excellent: karaage, takoyaki, Japanese curry
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🧳
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Regresar al hotel a empacar para Kioto.
+</span>
+                    <span class="en-text">                    Return to hotel to pack for Kyoto.
+</span>
+</strong>
+                    <span class="es-text">                    Salida mañana antes del mediodía.
+</span>
+                    <span class="en-text">                    Departing tomorrow before noon.
+</span>
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DAY 16 -->
+          <div class="day-card" data-date="2026-05-16">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--gold)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--gold)">
+                    16
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Sáb · Mayo
+</span>
+                    <span class="en-text">                    Sat · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    🚅
+                    <span class="es-text">                    Tokio → Kioto + 🏮 Tour Gion
+</span>
+                    <span class="en-text">                    Tokyo → Kyoto + 🏮 Gion Tour
+</span>
+                  </div>
+                  <div class="day-rhythm" style="color:var(--gold-light);border-color:rgba(154,111,14,0.4)">
+                    <span class="es-text">                    Día de tránsito
+</span>
+                    <span class="en-text">                    Transit day
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Mañana
+</span>
+                    <span class="en-text">                    Morning
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    ☕
+</span>
+                    <span class="time-text">                    <span class="es-text">                    Mañana libre — sights pendientes o descanso.
+</span>
+                    <span class="en-text">                    Free morning — pending sights or rest.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🚅
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Shinkansen Tokio → Kioto (~2h 15min)
+</span>
+                    <span class="en-text">                    Shinkansen Tokyo → Kyoto (~2h 15min)
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Los shinkansen corren cada 10–15 min — podemos ser flexibles con la hora. Salir antes del mediodía. Check-in DoubleTree Higashiyama.
+</span>
+                    <span class="en-text">                    Shinkansen runs every 10–15 min — we can be flexible with the time. Depart before noon. Check-in at DoubleTree Higashiyama.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌙
+                    <span class="es-text">                    Noche — Gion
+</span>
+                    <span class="en-text">                    Evening — Gion
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🎎
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Tour de audio Gion (2hrs, 1.7mi)
+</span>
+                    <span class="en-text">                    Gion audio tour (2hrs, 1.7mi)
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Minamiza Kabuki Theater → Shirakawa Lane → Tatsumi Bridge → Shinmonzen-dori Street → Ichiriki Teahouse → Hanamikoji Street → Gion Corner → Yasui Konpira-gu Shrine → Kennin-ji Temple → Ebisu-jinja Shrine → Saryo Tsujiri Tea House.
+</span>
+                    <span class="en-text">                    Minamiza Kabuki Theater → Shirakawa Lane → Tatsumi Bridge → Shinmonzen-dori Street → Ichiriki Teahouse → Hanamikoji Street → Gion Corner → Yasui Konpira-gu Shrine → Kennin-ji Temple → Ebisu-jinja Shrine → Saryo Tsujiri Tea House.
+</span>
+</span>
+                  </div>
+                  <div class="warn-box">
+                    🚫
+                    <strong>                    <span class="es-text">                    Sobre las Geishas en Gion:
+</span>
+                    <span class="en-text">                    About Geishas in Gion:
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Tomar fotografías de geishas y maiko en Gion
+                    <strong>                    está prohibido por ordenanza municipal
+</strong>
+                    y puede resultar en una multa de hasta ¥10,000. No las sigan, no les bloqueen el paso y mantengan distancia. Observar con respeto desde lejos es bienvenido.
+</span>
+                    <span class="en-text">                    Photographing geishas and maiko in Gion
+                    <strong>                    is banned by local ordinance
+</strong>
+                    and can result in a fine of up to ¥10,000. Do not follow them, do not block their path, and keep your distance. Observing respectfully from afar is welcome.
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🌸
+                    <span class="es-text">                    Primera noche en Kioto. El cambio de Tokio a Kioto se siente de inmediato — más silencioso, más tradicional, más íntimo.
+</span>
+                    <span class="en-text">                    First night in Kyoto. The shift from Tokyo to Kyoto is felt immediately — quieter, more traditional, more intimate.
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /days-list tokio -->
+      </section>
+      <!-- ════════════════════════════════════════
+     KIOTO
+════════════════════════════════════════ -->
+      <section class="city-section" id="sec-kioto">
+        <div class="city-header">
+          <div class="city-header-title" style="color:var(--gold)">
+            ⛩️
+            <span class="es-text">            Kioto
+</span>
+            <span class="en-text">            Kyoto
+</span>
+          </div>
+          <div class="city-header-sub">
+            <span class="es-text">            16–20 de mayo · 4 noches
+</span>
+            <span class="en-text">            May 16–20 · 4 nights
+</span>
+          </div>
+          <div class="city-hotel">
+            🏨 DoubleTree by Hilton Kyoto Higashiyama
+            <br />
+            <div class="hotel-address">
+              527 Misasagi Miyanomae-cho, Yamashina-ku, Kyoto 607-8456
+            </div>
+          </div>
+        </div>
+        <div class="section-label">
+          <div class="section-label-line">
+          </div>
+          <div class="section-label-text">
+            <span class="es-text">            Lugares Destacados
+</span>
+            <span class="en-text">            Highlights
+</span>
+          </div>
+          <div class="section-label-line">
+          </div>
+        </div>
+        <div class="carousel-wrap">
+          <div class="carousel-track" id="carousel-kioto">
+            <div class="sight-card">
+              <img src="images/img01.jpg" alt="Fushimi Inari" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  ⛩️ Fushimi Inari
+                </div>
+                <div class="sight-desc es-text">
+                  Miles de torii naranjas. Al amanecer, sin turistas.
+                </div>
+                <div class="sight-desc en-text">
+                  Thousands of orange torii. At sunrise, no tourists.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Salir 6am — mágico
+</span>
+                  <span class="en-text">                  Leave at 6am — magical
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://www.japan-guide.com/g18/3908_top.jpg" alt="Kinkakuji" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🏯 Kinkaku-ji
+                </div>
+                <div class="sight-desc es-text">
+                  El Pabellón Dorado — hoja de oro puro sobre el estanque.
+                </div>
+                <div class="sight-desc en-text">
+                  The Golden Pavilion — pure gold leaf over the pond.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Llegar ~4:30pm — luz perfecta
+</span>
+                  <span class="en-text">                  Arrive ~4:30pm — perfect light
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://img.activityjapan.com/wi/kiyomizudera-midokoro_thumb.jpg" alt="Kiyomizudera" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🏯 Kiyomizudera
+                </div>
+                <div class="sight-desc es-text">
+                  Plataforma de madera sobre el valle con vista panorámica de Kioto.
+                </div>
+                <div class="sight-desc en-text">
+                  Wooden platform over the valley with panoramic Kyoto views.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Las calles Ninenzaka y Sannenzaka = igualmente hermosas
+</span>
+                  <span class="en-text">                  Ninenzaka &amp; Sannenzaka streets = equally beautiful
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://photos.smugmug.com/Kyoto/Kyoto-Things-To-Do/i-X4SbQPn/0/L/arashiyama-bamboo-grove-M.jpg" alt="Arashiyama" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🎋 Arashiyama
+                </div>
+                <div class="sight-desc es-text">
+                  Bosque de bambú de 500m que cruje con el viento.
+                </div>
+                <div class="sight-desc en-text">
+                  500m bamboo forest that creaks in the wind.
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://www.japan-guide.com/g18/3931_top.jpg" alt="Nishiki Market" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🍜 Nishiki Market
+                </div>
+                <div class="sight-desc es-text">
+                  &#34;La cocina de Kioto&#34; — 400m de sabores únicos.
+                </div>
+                <div class="sight-desc en-text">
+                  &#34;Kyoto&#39;s Kitchen&#34; — 400m of unique flavors.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Come caminando — es la norma
+</span>
+                  <span class="en-text">                  Eat while walking — it&#39;s the norm
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/09/83/ee/temple-building.jpg?w=900&amp;h=500&amp;s=1" alt="Nanzenji" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  ⛩️ Nanzen-ji
+                </div>
+                <div class="sight-desc es-text">
+                  Templo zen con un acueducto del período Meiji. Final de la Senda del Filósofo.
+                </div>
+                <div class="sight-desc en-text">
+                  Zen temple with a Meiji-period aqueduct. End of the Philosopher&#39;s Path.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Restaurante Okutan sirve tofu desde 1635
+</span>
+                  <span class="en-text">                  Restaurant Okutan has served tofu since 1635
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="images/img15.jpg" alt="Gion" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🎎
+                  <span class="es-text">                  Distrito Gion
+</span>
+                  <span class="en-text">                  Gion District
+</span>
+                </div>
+                <div class="sight-desc es-text">
+                  El barrio de las geishas. Callejones de madera del período Edo, farolillos y teahouses.
+                </div>
+                <div class="sight-desc en-text">
+                  The geisha district. Edo-period wooden alleys, lanterns, and teahouses.
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://cdn.gaijinpot.com/app/uploads/sites/6/2016/05/Ginkaku-ji-Temple-1024x683.jpg" alt="Philosopher&#39;s Path" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🌿
+                  <span class="es-text">                  Senda del Filósofo
+</span>
+                  <span class="en-text">                  Philosopher&#39;s Path
+</span>
+                </div>
+                <div class="sight-desc es-text">
+                  2km junto a un canal bordeado de vegetación entre Ginkaku-ji y Nanzen-ji.
+                </div>
+                <div class="sight-desc en-text">
+                  2km alongside a canal lined with greenery from Ginkaku-ji to Nanzen-ji.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Plano y accesible
+</span>
+                  <span class="en-text">                  Flat and accessible
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="images/img16.jpg" alt="teamLab" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  💡 teamLab Biovortex
+                </div>
+                <div class="sight-desc es-text">
+                  Arte digital interactivo — 50+ instalaciones donde el arte responde a tu presencia.
+                </div>
+                <div class="sight-desc en-text">
+                  Interactive digital art — 50+ installations where art responds to your presence.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Ropa blanca o clara — brillas en fotos
+</span>
+                  <span class="en-text">                  White or light clothing — you glow in photos
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://res.cloudinary.com/dbm1qiew0/image/upload/blog-images/2024/08/Pontocho-at-Night.jpg" alt="Pontocho" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🏮 Pontocho
+                </div>
+                <div class="sight-desc es-text">
+                  El callejón más atmosférico de Kioto — terrazas kawayuka sobre el río Kamo.
+                </div>
+                <div class="sight-desc en-text">
+                  Kyoto&#39;s most atmospheric alley — kawayuka terraces over the Kamo River.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Solo abren mayo–sept. Timing perfecto.
+</span>
+                  <span class="en-text">                  Only open May–Sept. Perfect timing.
+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-dots" id="dots-kioto">
+          </div>
+        </div>
+        <!-- Special Events Kyoto -->
+        <div class="section-label">
+          <div class="section-label-line">
+          </div>
+          <div class="section-label-text">
+            <span class="es-text">            Eventos Especiales
+</span>
+            <span class="en-text">            Special Events
+</span>
+          </div>
+          <div class="section-label-line">
+          </div>
+        </div>
+        <div class="event-card">
+          <img src="images/img16.jpg" alt="teamLab" />
+          <div class="event-card-content">
+            <div class="event-tag">
+              💡
+              <span class="es-text">              Lunes 18 mayo — 5pm
+</span>
+              <span class="en-text">              Monday May 18 — 5pm
+</span>
+            </div>
+            <div class="event-title">
+              teamLab Biovortex Kyoto
+            </div>
+            <div class="event-desc es-text">
+              Arte digital interactivo — 50+ instalaciones donde el arte responde a tu presencia. 10,000 m² de experiencia única en el mundo. Ropa blanca o de colores claros — ¡brillarán en las fotos!
+            </div>
+            <div class="event-desc en-text">
+              Interactive digital art — 50+ installations where art responds to your presence. 10,000 m² of a one-of-a-kind world experience. Wear white or light colors — you&#39;ll glow in photos!
+            </div>
+          </div>
+        </div>
+        <!-- Days Kyoto -->
+        <div class="section-label">
+          <div class="section-label-line">
+          </div>
+          <div class="section-label-text">
+            <span class="es-text">            Día a Día
+</span>
+            <span class="en-text">            Day by Day
+</span>
+          </div>
+          <div class="section-label-line">
+          </div>
+        </div>
+        <div class="days-list">
+          <!-- DAY 17 -->
+          <div class="day-card" data-date="2026-05-17">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--gold)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--gold)">
+                    17
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Dom · Mayo
+</span>
+                    <span class="en-text">                    Sun · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    ⛩️ Fushimi Inari (6am) + 🎮 Osaka Festival
+                  </div>
+                  <div class="day-rhythm" style="color:var(--vermillion);border-color:rgba(192,57,43,0.4)">
+                    <span class="es-text">                    Día especial 🗻
+</span>
+                    <span class="en-text">                    Special day 🗻
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Amanecer — Fushimi Inari
+</span>
+                    <span class="en-text">                    Sunrise — Fushimi Inari
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    ⛩️
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Salir del hotel a las 6am
+</span>
+                    <span class="en-text">                    Leave hotel at 6am
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Miles de torii naranjas serpenteando la montaña. Sin turistas, luz dorada del amanecer, silencio total. Subir hasta Yotsutsuji (media montaña) para las mejores vistas de Kioto. Los senderos más altos son opcionales.
+</span>
+                    <span class="en-text">                    Thousands of orange torii winding up the mountain. No tourists, golden sunrise light, total silence. Climb to Yotsutsuji (halfway up) for the best views of Kyoto. Higher trails are optional.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🌸
+                    <span class="es-text">                    Uno de los momentos más mágicos de todo el viaje. Calzado cómodo y una botella de agua.
+</span>
+                    <span class="en-text">                    One of the most magical moments of the entire trip. Comfortable shoes and a water bottle.
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🍳
+                    <span class="es-text">                    Desayuno merecido
+</span>
+                    <span class="en-text">                    Well-earned breakfast
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🍳
+</span>
+                    <span class="time-text">                    <span class="es-text">                    Desayuno sentado después de la caminata matutina. Buscar una cafetería o restaurante japonés en la zona de Fushimi.
+</span>
+                    <span class="en-text">                    Sit-down breakfast after the morning walk. Find a café or Japanese restaurant in the Fushimi area.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    ☀️
+                    <span class="es-text">                    Mediodía — Nipponbashi · Osaka
+</span>
+                    <span class="en-text">                    Midday — Nipponbashi · Osaka
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🎮
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Festival Nipponbashi (Den Den Town) — llegar antes del mediodía
+</span>
+                    <span class="en-text">                    Nipponbashi Festival (Den Den Town) — arrive before noon
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    El festival de cultura pop y cosplay más grande de la región de Kansai. La calle principal se cierra al tráfico — miles de asistentes desfilan en trajes de anime, videojuegos y personajes populares. El festival celebra la identidad geek y otaku como parte legítima de la cultura japonesa moderna.
+</span>
+                    <span class="en-text">                    The largest pop culture and cosplay festival in the Kansai region. The main street closes to traffic — thousands of attendees parade in anime, video game, and popular character costumes. The festival celebrates geek and otaku identity as a legitimate part of modern Japanese culture.
+</span>
+</span>
+                  </div>
+                  <div class="parents-note">
+                    👴👵
+                    <span class="es-text">                    Alternativa para papás: Tour guiado del Bosque de Bambú de Arashiyama — ritmo suave, guía bilingüe, vistas espectaculares. Contactar Visit Kansai para reservar.
+</span>
+                    <span class="en-text">                    Alternative for parents: Guided tour of Arashiyama Bamboo Grove — slow pace, bilingual guide, spectacular views. Contact Visit Kansai to book.
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌙
+                    <span class="es-text">                    Tarde/Noche
+</span>
+                    <span class="en-text">                    Afternoon/Evening
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🚂
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Opción A:
+</span>
+                    <span class="en-text">                    Option A:
+</span>
+</strong>
+                    <span class="es-text">                    Regresar a Kioto ~3:30pm. Noche libre — descanso, más templos, o explorar el Gion nuevamente.
+</span>
+                    <span class="en-text">                    Return to Kyoto ~3:30pm. Free evening — rest, more temples, or explore Gion again.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏮
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Opción B:
+</span>
+                    <span class="en-text">                    Option B:
+</span>
+</strong>
+                    <span class="es-text">                    Quedarse en Osaka y explorar
+                    <strong>                    Shinsekai
+</strong>
+                    — el barrio más retro, con la Torre Tsūtenkaku, kushikatsu y estética de los años 50.
+</span>
+                    <span class="en-text">                    Stay in Osaka and explore
+                    <strong>                    Shinsekai
+</strong>
+                    — the most retro neighborhood, with Tsūtenkaku Tower, kushikatsu, and 1950s aesthetic.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    <span class="es-text">                    Regla de oro en Shinsekai: nunca mojes el kushikatsu
+                    <strong>                    dos veces
+</strong>
+                    en la salsa. (Lo dice el cartel.) 🍢
+</span>
+                    <span class="en-text">                    Golden rule in Shinsekai: never dip kushikatsu
+                    <strong>                    twice
+</strong>
+                    in the sauce. (The sign says so.) 🍢
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DAY 18 -->
+          <div class="day-card" data-date="2026-05-18">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--gold)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--gold)">
+                    18
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Lun · Mayo
+</span>
+                    <span class="en-text">                    Mon · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    🏯 Higashiyama + 🍜 Nishiki + 💡 teamLab (5pm)
+                  </div>
+                  <div class="day-rhythm" style="color:var(--gold-light);border-color:rgba(154,111,14,0.4)">
+                    <span class="es-text">                    Día especial ✨
+</span>
+                    <span class="en-text">                    Special day ✨
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Mañana — Tour Higashiyama
+</span>
+                    <span class="en-text">                    Morning — Higashiyama Tour
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏯
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Tour de audio Higashiyama (1hr, 1.6mi)
+</span>
+                    <span class="en-text">                    Higashiyama audio tour (1hr, 1.6mi)
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Kiyomizudera Temple → Ninen-zaka &amp; Sannen-zaka (calles empedradas del período Meiji, tiendas de artesanías) → Kodai-ji Temple → Nene-no-Michi Lane → Yasaka-jinja Shrine → Chion-in Temple → Shoren-in Temple.
+</span>
+                    <span class="en-text">                    Kiyomizudera Temple → Ninen-zaka &amp; Sannen-zaka (Meiji-period cobblestone streets, craft shops) → Kodai-ji Temple → Nene-no-Michi Lane → Yasaka-jinja Shrine → Chion-in Temple → Shoren-in Temple.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🏨
+                    <span class="es-text">                    El hotel está en pleno Higashiyama — muchas de estas paradas quedan a minutos caminando. Una de las rutas más hermosas de todo Kioto.
+</span>
+                    <span class="en-text">                    The hotel is right in Higashiyama — many of these stops are just minutes away on foot. One of the most beautiful routes in all of Kyoto.
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    ☀️
+                    <span class="es-text">                    Tarde — Nishiki Market
+</span>
+                    <span class="en-text">                    Afternoon — Nishiki Market
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🍜
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Almuerzo en Nishiki Market
+</span>
+                    <span class="en-text">                    Lunch at Nishiki Market
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    &#34;La cocina de Kioto&#34; — 400m de tiendas con tamagoyaki, dango, tofu frito, pulpos enteros a la plancha, té matcha y snacks imposibles de encontrar en otro lugar. Come mientras caminas — eso es lo correcto aquí.
+</span>
+                    <span class="en-text">                    &#34;Kyoto&#39;s Kitchen&#34; — 400m of shops with tamagoyaki, dango, fried tofu, whole grilled octopus, matcha tea, and snacks you can&#39;t find anywhere else. Eat while you walk — that&#39;s the norm here.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏨
+</span>
+                    <span class="time-text">                    <span class="es-text">                    Regreso al hotel a descansar y cambiarse para teamLab. Ropa blanca o de colores claros.
+</span>
+                    <span class="en-text">                    Return to hotel to rest and change for teamLab. Wear white or light-colored clothes.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌙 teamLab (5pm)
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    💡
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    teamLab Biovortex Kyoto — Entrada 5:00–5:30pm
+</span>
+                    <span class="en-text">                    teamLab Biovortex Kyoto — Entry 5:00–5:30pm
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Boletos ya comprados. 50+ instalaciones de arte digital interactivo donde el arte responde a tu presencia. Explorar sin prisa — pueden quedarse hasta 2–3 horas.
+</span>
+                    <span class="en-text">                    Tickets already purchased. 50+ interactive digital art installations where art responds to your presence. Explore at leisure — you can stay 2–3 hours.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🌊
+                    <span class="es-text">                    Una de las experiencias más únicas del viaje. No tiene paralelo en ningún otro lugar del mundo.
+</span>
+                    <span class="en-text">                    One of the most unique experiences of the trip. It has no parallel anywhere else in the world.
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DAY 19 -->
+          <div class="day-card" data-date="2026-05-19">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--gold)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--gold)">
+                    19
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Mar · Mayo
+</span>
+                    <span class="en-text">                    Tue · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    🌿
+                    <span class="es-text">                    Senda del Filósofo + 🏯 Kinkaku-ji + 🥩 Wagyu
+</span>
+                    <span class="en-text">                    Philosopher&#39;s Path + 🏯 Kinkaku-ji + 🥩 Wagyu
+</span>
+                  </div>
+                  <div class="day-rhythm" style="color:var(--vermillion);border-color:rgba(192,57,43,0.4)">
+                    <span class="es-text">                    Día especial ✨
+</span>
+                    <span class="en-text">                    Special day ✨
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Mañana (10am)
+</span>
+                    <span class="en-text">                    Morning (10am)
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🌿
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Tour de audio Senda del Filósofo (2hrs, 1.6mi)
+</span>
+                    <span class="en-text">                    Philosopher&#39;s Path audio tour (2hrs, 1.6mi)
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Inicio a las 10am: Nanzen-ji Temple → Eikan-do Zenrin-ji Temple → Inicio sur de la Senda → Otoyo Shrine → Daitoyo Bridge → Sakurabashi Bridge → Honen-in Temple →
+                    <strong>                    Ginkaku-ji Temple
+</strong>
+                    (Pabellón de Plata).
+</span>
+                    <span class="en-text">                    Start at 10am: Nanzen-ji Temple → Eikan-do Zenrin-ji Temple → South start of the Path → Otoyo Shrine → Daitoyo Bridge → Sakurabashi Bridge → Honen-in Temple →
+                    <strong>                    Ginkaku-ji Temple
+</strong>
+                    (Silver Pavilion).
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🪑
+                    <span class="es-text">                    2km junto a un canal bordeado de vegetación exuberante. Plano y accesible — perfecto después de días intensos. Para en algún café con jardín a la mitad.
+</span>
+                    <span class="en-text">                    2km alongside a canal lined with lush greenery. Flat and accessible — perfect after intense days. Stop at a garden café halfway through.
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    ☀️
+                    <span class="es-text">                    Tarde libre
+</span>
+                    <span class="en-text">                    Free afternoon
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🍽️
+</span>
+                    <span class="time-text">                    <span class="es-text">                    Almuerzo tranquilo cerca de Ginkaku-ji. Café con jardín. Recarga de energía antes del atardecer.
+</span>
+                    <span class="en-text">                    Quiet lunch near Ginkaku-ji. Garden café. Recharge before sunset.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Atardecer — Kinkaku-ji
+</span>
+                    <span class="en-text">                    Sunset — Kinkaku-ji
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏯
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Kinkaku-ji — Pabellón Dorado al atardecer
+</span>
+                    <span class="en-text">                    Kinkaku-ji — Golden Pavilion at sunset
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Cubierto de hoja de oro puro. La luz de media tarde lo hace brillar sobre el estanque — la foto más icónica de Kioto.
+                    <strong>                    Cierra a las 5pm — llegar ~4:00–4:30pm.
+</strong>
+</span>
+                    <span class="en-text">                    Covered in pure gold leaf. The afternoon light makes it shine over the pond — Kyoto&#39;s most iconic photo.
+                    <strong>                    Closes at 5pm — arrive ~4:00–4:30pm.
+</strong>
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌙
+                    <span class="es-text">                    Cena especial — Wagyu · Pontocho
+</span>
+                    <span class="en-text">                    Special dinner — Wagyu · Pontocho
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🥩
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Cena Wagyu en Pontocho
+</span>
+                    <span class="en-text">                    Wagyu Dinner in Pontocho
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Carne de Wagyu cocinada en plancha teppan de hierro por un chef experto. El marmoleado se derrite a fuego lento — mantecoso y rico como ningún otro filete. Pontocho es el callejón más atmosférico de Kioto, iluminado con farolillos, paralelo al Río Kamo. Las terrazas kawayuka sobre el río solo abren mayo–septiembre.
+                    <strong>                    Timing perfecto.
+</strong>
+</span>
+                    <span class="en-text">                    Wagyu beef cooked on a teppan iron plate by an expert chef. The marbling melts slowly — buttery and rich like no other steak. Pontocho is Kyoto&#39;s most atmospheric alley, lit with lanterns, parallel to the Kamo River. The kawayuka terraces over the river only open May–September.
+                    <strong>                    Perfect timing.
+</strong>
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    💰 ~¥15,500 /
+                    <span class="es-text">                    persona (~$100 USD). Reserva anticipada recomendada.
+</span>
+                    <span class="en-text">                    person (~$100 USD). Advance reservation recommended.
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /days-list kioto -->
+      </section>
+      <!-- ════════════════════════════════════════
+     NARA / OSAKA
+════════════════════════════════════════ -->
+      <section class="city-section" id="sec-osaka">
+        <div class="city-header">
+          <div class="city-header-title" style="color:var(--indigo)">
+            🦌🏮
+            <span class="es-text">            Nara &amp; Osaka
+</span>
+            <span class="en-text">            Nara &amp; Osaka
+</span>
+          </div>
+          <div class="city-header-sub">
+            <span class="es-text">            20–22 de mayo
+</span>
+            <span class="en-text">            May 20–22
+</span>
+          </div>
+          <div class="city-hotel">
+            🏨 DoubleTree by Hilton Osaka Castle
+            <br />
+            <div class="hotel-address">
+              1-32-1 Shiromi, Chuo-ku, Osaka 540-0001
+            </div>
+          </div>
+        </div>
+        <div class="section-label">
+          <div class="section-label-line">
+          </div>
+          <div class="section-label-text">
+            <span class="es-text">            Lugares Destacados
+</span>
+            <span class="en-text">            Highlights
+</span>
+          </div>
+          <div class="section-label-line">
+          </div>
+        </div>
+        <div class="carousel-wrap">
+          <div class="carousel-track" id="carousel-osaka">
+            <div class="sight-card">
+              <img src="https://onb-cdn.b-cdn.net/images-stn-osaka/118-Dotonbori-Area-Osaka1.jpg" alt="Dotonbori" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  ✨ Dotonbori
+                </div>
+                <div class="sight-desc es-text">
+                  Canal de neón, takoyaki y el letrero Glico.
+                </div>
+                <div class="sight-desc en-text">
+                  Neon canal, takoyaki, and the Glico sign.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Foto con el cangrejo Kani Doraku
+</span>
+                  <span class="en-text">                  Photo with the Kani Doraku crab
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://www.planmyjapan.com/wp-content/uploads/2024/07/shinsekai-20-1067x800.jpg" alt="Shinsekai" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🗼 Shinsekai
+                </div>
+                <div class="sight-desc es-text">
+                  El barrio más retro de Osaka con la Torre Tsūtenkaku.
+                </div>
+                <div class="sight-desc en-text">
+                  Osaka&#39;s most retro neighborhood with Tsūtenkaku Tower.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Nunca dos veces en la salsa 🍢
+</span>
+                  <span class="en-text">                  Never twice in the sauce 🍢
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="images/img19.jpg" alt="Kuromon" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🐟 Kuromon Market
+                </div>
+                <div class="sight-desc es-text">
+                  &#34;La cocina de Osaka&#34; — mariscos y delicias al paso.
+                </div>
+                <div class="sight-desc en-text">
+                  &#34;Osaka&#39;s Kitchen&#34; — seafood and delicacies to go.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Mejor almuerzo del viaje
+</span>
+                  <span class="en-text">                  Best lunch of the trip
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="images/img20.jpg" alt="Nara Deer" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🦌
+                  <span class="es-text">                  Ciervos de Nara
+</span>
+                  <span class="en-text">                  Nara Deer
+</span>
+                </div>
+                <div class="sight-desc es-text">
+                  1,000+ ciervos libres. Se inclinan por galletas.
+                </div>
+                <div class="sight-desc en-text">
+                  1,000+ free deer. They bow for crackers.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Shika senbei = galletas de ciervo ¥200
+</span>
+                  <span class="en-text">                  Shika senbei = deer crackers ¥200
+</span>
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://cdn.gaijinpot.com/app/uploads/sites/6/2016/02/Todai-ji-.jpg" alt="Todaiji" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🏛️ Tōdai-ji · Nara
+                </div>
+                <div class="sight-desc es-text">
+                  El Gran Buda de 15m en el edificio de madera más grande del mundo.
+                </div>
+                <div class="sight-desc en-text">
+                  15m Great Buddha in the world&#39;s largest wooden building.
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://www.jocjapantravel.com/wp-content/uploads/2025/06/Kasuga-Taisha-1240290.jpg" alt="Kasuga" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  ⛩️ Kasuga Taisha · Nara
+                </div>
+                <div class="sight-desc es-text">
+                  Miles de faroles de piedra y bronce en el bosque sagrado.
+                </div>
+                <div class="sight-desc en-text">
+                  Thousands of stone and bronze lanterns in the sacred forest.
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://res.klook.com/image/upload/w_500,h_313,c_fill,q_85/activities/vk7grqu8c7mhmweud96h.jpg" alt="Osaka Castle" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🏯
+                  <span class="es-text">                  Castillo de Osaka
+</span>
+                  <span class="en-text">                  Osaka Castle
+</span>
+                </div>
+                <div class="sight-desc es-text">
+                  Cerca del hotel — el castillo más famoso de Japón.
+                </div>
+                <div class="sight-desc en-text">
+                  Near the hotel — Japan&#39;s most famous castle.
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://www.nankai.co.jp/community/natts/api/wp-content/uploads/2026/01/yasaka-1-2.jpg" alt="Namba Yasaka" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  ⛩️ Namba Yasaka
+                </div>
+                <div class="sight-desc es-text">
+                  El santuario con una cabeza de demonio gigante. Imperdible.
+                </div>
+                <div class="sight-desc en-text">
+                  The shrine with a giant demon head. Unmissable.
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://www.skybldg.co.jp/lang/asset/img/top/mv_bg01.jpg" alt="Umeda Sky" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🌆 Umeda Sky Building
+                </div>
+                <div class="sight-desc es-text">
+                  &#34;Floating Garden&#34; a 173m de altura — vista espectacular de Osaka.
+                </div>
+                <div class="sight-desc en-text">
+                  &#34;Floating Garden&#34; at 173m — spectacular Osaka view.
+                </div>
+              </div>
+            </div>
+            <div class="sight-card">
+              <img src="https://d1wv60jaas5mse.cloudfront.net/images/uploads/production/post_images/80c22adacc6647_Famous%20crab%20sign%20in%20Dotonburi.jpg" alt="Namba" />
+              <div class="sight-caption">
+                <div class="sight-name">
+                  🛍️ Namba
+                </div>
+                <div class="sight-desc es-text">
+                  El corazón comercial de Osaka. Donki, Uniqlo, souvenirs.
+                </div>
+                <div class="sight-desc en-text">
+                  Osaka&#39;s commercial heart. Donki, Uniqlo, souvenirs.
+                </div>
+                <div class="sight-tip">
+                  💡
+                  <span class="es-text">                  Última oportunidad de compras
+</span>
+                  <span class="en-text">                  Last shopping opportunity
+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-dots" id="dots-osaka">
+          </div>
+        </div>
+        <div class="section-label">
+          <div class="section-label-line">
+          </div>
+          <div class="section-label-text">
+            <span class="es-text">            Día a Día
+</span>
+            <span class="en-text">            Day by Day
+</span>
+          </div>
+          <div class="section-label-line">
+          </div>
+        </div>
+        <div class="days-list">
+          <!-- DAY 20 -->
+          <div class="day-card" data-date="2026-05-20">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--indigo)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--indigo)">
+                    20
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Mié · Mayo
+</span>
+                    <span class="en-text">                    Wed · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    🦌 Nara → 🏮 Osaka ·
+                    <span class="es-text">                    Check-in + Dotonbori
+</span>
+                    <span class="en-text">                    Check-in + Dotonbori
+</span>
+                  </div>
+                  <div class="day-rhythm" style="color:var(--indigo);border-color:rgba(44,62,122,0.4)">
+                    <span class="es-text">                    Día de tránsito
+</span>
+                    <span class="en-text">                    Transit day
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Mañana — Nara
+</span>
+                    <span class="en-text">                    Morning — Nara
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🧳
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Guardar maletas en coin lockers de Nara Station
+</span>
+                    <span class="en-text">                    Store bags in Nara Station coin lockers
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Viajamos ligeros todo el día. Los coin lockers están disponibles en la estación de Nara — varios tamaños disponibles para maletas de carry-on.
+</span>
+                    <span class="en-text">                    We travel light all day. Coin lockers available at Nara Station — various sizes available for carry-on bags.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🚂
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Tren Kyoto → Nara (~45 min, Kintetsu Line)
+</span>
+                    <span class="en-text">                    Train Kyoto → Nara (~45 min, Kintetsu Line)
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Salida ~9:30am. Llegada ~11:00am.
+</span>
+                    <span class="en-text">                    Depart ~9:30am. Arrive ~11:00am.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🦌
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Parque de Nara
+</span>
+                    <span class="en-text">                    Nara Park
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    1,000+ ciervos completamente libres caminando entre la gente. Comprar
+                    <strong>                    shika senbei
+</strong>
+                    (galletas de ciervo, ¥200) y esperar a que se inclinen para pedirlas. Los ciervos son suaves pero insistentes — guardar comida en la mochila.
+</span>
+                    <span class="en-text">                    1,000+ completely free deer walking among people. Buy
+                    <strong>                    shika senbei
+</strong>
+                    (deer crackers, ¥200) and wait for them to bow and ask for them. Deer are gentle but persistent — keep food in your backpack.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏛️
+</span>
+                    <span class="time-text">                    <strong>                    Tōdai-ji
+</strong>
+                    <br />
+                    <span class="es-text">                    El Gran Buda de Nara — 15 metros de altura, fundido en bronce en el año 752 DC. El edificio de madera que lo alberga es el más grande del mundo.
+</span>
+                    <span class="en-text">                    The Great Buddha of Nara — 15 meters tall, cast in bronze in 752 AD. The wooden building housing it is the world&#39;s largest.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    ⛩️
+</span>
+                    <span class="time-text">                    <strong>                    Kasuga Taisha
+</strong>
+                    (
+                    <span class="es-text">                    si hay energía
+</span>
+                    <span class="en-text">                    if you have energy
+</span>
+                    ) —
+                    <span class="es-text">                    Miles de faroles de piedra y bronce en el bosque sagrado. Camino tranquilo entre árboles centenarios.
+</span>
+                    <span class="en-text">                    Thousands of stone and bronze lanterns in the sacred forest. Peaceful path among centuries-old trees.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🪑
+                    <span class="es-text">                    Nara es completamente plano y muy amigable. Muchos jardines y bancas. Perfecto para los papás.
+</span>
+                    <span class="en-text">                    Nara is completely flat and very friendly. Lots of gardens and benches. Perfect for parents.
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌙
+                    <span class="es-text">                    Tarde/Noche — Osaka
+</span>
+                    <span class="en-text">                    Afternoon/Evening — Osaka
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🚂
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Nara → Osaka (~45 min)
+</span>
+                    <span class="en-text">                    Nara → Osaka (~45 min)
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Recuperar maletas en Nara Station. Check-in DoubleTree Osaka Castle.
+</span>
+                    <span class="en-text">                    Pick up bags from Nara Station. Check-in at DoubleTree Osaka Castle.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    ✨
+</span>
+                    <span class="time-text">                    <strong>                    Dotonbori —
+                    <span class="es-text">                    Primera noche en Osaka
+</span>
+                    <span class="en-text">                    First night in Osaka
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Takoyaki, okonomiyaki, neón sobre el canal. El letrero de Glico y el cangrejo gigante de Kani Doraku son imperdibles. Solo camina, come y absorbe la energía de la ciudad más viva de Japón.
+</span>
+                    <span class="en-text">                    Takoyaki, okonomiyaki, neon over the canal. The Glico sign and the giant Kani Doraku crab are unmissable. Just walk, eat, and absorb the energy of Japan&#39;s most vibrant city.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    🤩
+                    <span class="es-text">                    La primera impresión de Osaka de noche es WOW. Solo camina y come — no hay plan malo aquí.
+</span>
+                    <span class="en-text">                    The first impression of Osaka at night is WOW. Just walk and eat — there&#39;s no bad plan here.
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DAY 21 -->
+          <div class="day-card" data-date="2026-05-21">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--indigo)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--indigo)">
+                    21
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Jue · Mayo
+</span>
+                    <span class="en-text">                    Thu · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    🐟 Kuromon + 🛍️ Namba + 🌆 Umeda
+                  </div>
+                  <div class="day-rhythm" style="color:var(--indigo);border-color:rgba(44,62,122,0.4)">
+                    <span class="es-text">                    Último día completo
+</span>
+                    <span class="en-text">                    Last full day
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Mañana — Compras finales
+</span>
+                    <span class="en-text">                    Morning — Final shopping
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🛍️
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Namba — Último día de compras en Japón
+</span>
+                    <span class="en-text">                    Namba — Last shopping day in Japan
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Souvenirs, dulces japoneses, Donki (Don Quijote — tienda 24hrs con de todo), Uniqlo, y los callejones del área. Es el momento de comprar todo lo que quedó pendiente.
+</span>
+                    <span class="en-text">                    Souvenirs, Japanese sweets, Donki (Don Quijote — 24hr store with everything), Uniqlo, and the area&#39;s alleyways. This is the time to buy everything left pending.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    ⛩️
+</span>
+                    <span class="time-text">                    <strong>                    Namba Yasaka Shrine
+</strong>
+                    —
+                    <span class="es-text">                    el santuario con una cabeza de demonio gigante que sirve como escenario para rituales. Imperdible — está a 5 min caminando de Dotonbori.
+</span>
+                    <span class="en-text">                    the shrine with a giant demon head used as a ritual stage. Unmissable — it&#39;s a 5-min walk from Dotonbori.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    ☀️
+                    <span class="es-text">                    Tarde
+</span>
+                    <span class="en-text">                    Afternoon
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🐟
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Almuerzo en Kuromon Ichiba Market
+</span>
+                    <span class="en-text">                    Lunch at Kuromon Ichiba Market
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    &#34;La cocina de Osaka&#34; — 600 metros de pescado fresco y delicias al paso: ostras a la parrilla, cangrejo fresco, wagyu al corte, takoyaki recién hecho, mariscos variados. El mejor almuerzo de todo el viaje.
+</span>
+                    <span class="en-text">                    &#34;Osaka&#39;s Kitchen&#34; — 600 meters of fresh fish and on-the-go delicacies: grilled oysters, fresh crab, sliced wagyu, freshly made takoyaki, assorted seafood. The best lunch of the whole trip.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🌆
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Opcional: Umeda Sky Building
+</span>
+                    <span class="en-text">                    Optional: Umeda Sky Building
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    El &#34;Floating Garden Observatory&#34; — dos torres conectadas por un puente circular a 173m de altura. Una de las vistas más espectaculares de Osaka. Ideal si queda energía por la tarde.
+</span>
+                    <span class="en-text">                    The &#34;Floating Garden Observatory&#34; — two towers connected by a circular bridge at 173m. One of Osaka&#39;s most spectacular views. Ideal if there&#39;s energy left in the afternoon.
+</span>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    🌙
+                    <span class="es-text">                    Noche — Cena de despedida
+</span>
+                    <span class="en-text">                    Evening — Farewell dinner
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🍻
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    La última gran cena del viaje
+</span>
+                    <span class="en-text">                    The last great dinner of the trip
+</span>
+</strong>
+                    <br />
+                    <span class="es-text">                    Dotonbori o Namba — pedir el mejor plato del menú. Celebración merecida. 🥂
+</span>
+                    <span class="en-text">                    Dotonbori or Namba — order the best dish on the menu. A well-deserved celebration. 🥂
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🧳
+</span>
+                    <span class="time-text">                    <span class="es-text">                    Regresar al hotel y empacar todo para el vuelo de mañana.
+</span>
+                    <span class="en-text">                    Return to hotel and pack everything for tomorrow&#39;s flight.
+</span>
+</span>
+                  </div>
+                  <div class="tip-box">
+                    <span class="es-text">                    Última noche en Japón. Pide el mejor plato del menú. Te lo ganaste. 🥂
+</span>
+                    <span class="en-text">                    Last night in Japan. Order the best dish on the menu. You&#39;ve earned it. 🥂
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DAY 22 -->
+          <div class="day-card" data-date="2026-05-22">
+            <div class="day-header">
+              <div class="day-accent-bar" style="background:var(--indigo)">
+              </div>
+              <div class="day-header-inner">
+                <div class="day-num-block">
+                  <div class="day-num" style="color:var(--indigo)">
+                    22
+                  </div>
+                  <div class="day-name-small">
+                    <span class="es-text">                    Vie · Mayo
+</span>
+                    <span class="en-text">                    Fri · May
+</span>
+                  </div>
+                </div>
+                <div class="day-title-block">
+                  <div class="day-title">
+                    ✈️
+                    <span class="es-text">                    Vuelo a casa · Osaka KIX → Casa
+</span>
+                    <span class="en-text">                    Flight home · Osaka KIX → Home
+</span>
+                  </div>
+                  <div class="day-rhythm">
+                    <span class="es-text">                    Día suave
+</span>
+                    <span class="en-text">                    Easy day
+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="day-body">
+              <div class="time-blocks">
+                <div class="time-block">
+                  <div class="time-label">
+                    🌅
+                    <span class="es-text">                    Mañana
+</span>
+                    <span class="en-text">                    Morning
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    😴
+</span>
+                    <span class="time-text">                    <span class="es-text">                    Dormir y desayuno tranquilo. El viaje lo mereció. Sin carreras esta mañana.
+</span>
+                    <span class="en-text">                    Sleep in and quiet breakfast. The trip deserved it. No rushing this morning.
+</span>
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🏨
+</span>
+                    <span class="time-text">                    <strong>                    <span class="es-text">                    Checkout a las 11am
+</span>
+                    <span class="en-text">                    Checkout at 11am
+</span>
+</strong>
+</span>
+                  </div>
+                </div>
+                <div class="time-block">
+                  <div class="time-label">
+                    ✈️
+                    <span class="es-text">                    Vuelo de regreso
+</span>
+                    <span class="en-text">                    Return flight
+</span>
+                  </div>
+                  <div class="time-item">
+                    <span class="time-icon">                    🚕
+</span>
+                    <span class="time-text">                    <strong>                    <span class="e
