@@ -1,0 +1,115 @@
+<style>
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.carousel img {
+  width: 100%;
+  flex-shrink: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Dots */
+.carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carousel-dots button {
+  width: 12px;
+  height: 12px;
+  margin: 4px;
+  border-radius: 50%;
+  border: none;
+  background: #bbb;
+  cursor: pointer;
+}
+
+.carousel-dots button.active {
+  background: #333;
+}
+</style>
+
+<div class="carousel" id="carousel">
+  <div class="carousel-track">
+    <img src="https://picsum.photos/800/400?random=1" alt="Image 1">
+    <img src="https://picsum.photos/800/400?random=2" alt="Image 2">
+    <img src="https://picsum.photos/800/400?random=3" alt="Image 3">
+  </div>
+</div>
+
+<div class="carousel-dots" id="carousel-dots"></div>
+
+<script>
+const carousel = document.getElementById("carousel");
+const track = carousel.querySelector(".carousel-track");
+const slides = Array.from(track.children);
+const dotsContainer = document.getElementById("carousel-dots");
+
+let index = 0;
+let startX = 0;
+let currentX = 0;
+let isDragging = false;
+
+/* Create dots */
+slides.forEach((_, i) => {
+  const dot = document.createElement("button");
+  if (i === 0) dot.classList.add("active");
+  dot.addEventListener("click", () => {
+    index = i;
+    updateCarousel();
+  });
+  dotsContainer.appendChild(dot);
+});
+
+const dots = Array.from(dotsContainer.children);
+
+function updateCarousel() {
+  track.style.transform = `translateX(${-index * carousel.offsetWidth}px)`;
+  dots.forEach(d => d.classList.remove("active"));
+  dots[index].classList.add("active");
+}
+
+/* Swipe / Drag */
+carousel.addEventListener("touchstart", startDrag);
+carousel.addEventListener("mousedown", startDrag);
+
+function startDrag(e) {
+  isDragging = true;
+  startX = e.touches ? e.touches[0].clientX : e.clientX;
+}
+
+carousel.addEventListener("touchmove", drag);
+carousel.addEventListener("mousemove", drag);
+
+function drag(e) {
+  if (!isDragging) return;
+  currentX = e.touches ? e.touches[0].clientX : e.clientX;
+}
+
+carousel.addEventListener("touchend", endDrag);
+carousel.addEventListener("mouseup", endDrag);
+carousel.addEventListener("mouseleave", endDrag);
+
+function endDrag() {
+  if (!isDragging) return;
+  const diff = currentX - startX;
+
+  if (diff > 50 && index > 0) index--;
+  if (diff < -50 && index < slides.length - 1) index++;
+
+  updateCarousel();
+  isDragging = false;
+}
+</script>
